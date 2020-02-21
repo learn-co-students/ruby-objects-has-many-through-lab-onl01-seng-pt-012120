@@ -14,9 +14,9 @@ end
 def songs 
   Song.all {|songs| songs.genre == self}
 end 
-
+ 
 def artists 
-  self.song.map {|song| song.artist}
+  self.songs.map {|song| song.artist}
 end 
 
 
