@@ -1,0 +1,31 @@
+require 'pry'
+class Doctor
+  attr_accessor :name
+  
+  def initialize(name)
+    @name = name
+    @@all << self
+  end
+  
+  
+  @@all = []
+  
+  def self.all
+    @@all  
+  end
+  
+  def new_appointment(patient, date)
+    Appointment.new(date, patient, self)
+  end
+  
+  def appointments
+      Appointment.all.select {|appt| appt }
+  end
+  
+  def patients
+    self.appointments.map {|appt| appt.patient}
+      
+  end
+  
+  
+end
